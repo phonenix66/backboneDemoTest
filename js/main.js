@@ -7,7 +7,9 @@ requirejs.config({
     backbone: 'lib/backbone/backbone-min',
     fastclick: 'lib/fastclick/lib/fastclick',
     text: 'lib/requirejs-text/text',
-    layer: 'plugin/layer/layer'
+    layer: 'plugin/layer/layer',
+    self: 'self',
+    app: '../apps'
   },
   shim: {
     'backbone': {
@@ -22,6 +24,13 @@ requirejs.config({
     },
     doT: {
       exports: 'doT'
+    },
+    self: {
+      deps: ['jquery']
     }
   }
+})
+
+requirejs(['app'], function (app) {
+  app.initialize();
 })
